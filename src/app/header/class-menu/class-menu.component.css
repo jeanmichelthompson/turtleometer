@@ -1,0 +1,23 @@
+.class-menu {
+  display: flex;
+  flex-direction: column;
+  width: 400px;
+}
+
+.list-item {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+p-button {
+  margin-right: 4px;
+}
+
+.edit-button {
+  margin-left: auto;
+}
+
+li {
+  padding-bottom: 5px;
+}

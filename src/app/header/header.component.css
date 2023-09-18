@@ -5,15 +5,25 @@ p-toolbar {
 .toolbar-container {
   display: flex;
   width: 100%;
-  justify-content: space-between;
+  justify-content: left;
 }
 
 .p-toolbar-group-center {
   display: flex;
   flex-direction: column;
-  margin: auto;
+  margin-left: auto;
+  margin-right: 420px;
+}
+
+.p-toolbar-group-end {
+  margin-left: auto;
 }
 
 h1, h2 {
   margin: 0;
+}
+
+.edit-button {
+  margin-left: 15px;
+  margin-right: auto;
 }

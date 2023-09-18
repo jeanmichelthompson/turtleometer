@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { SelectItem } from 'primeng/api/selectitem';
 import { Subject } from 'rxjs';
 
 interface Student {
@@ -16,6 +17,14 @@ export class ClassDataService {
   private selectedClass: string = 'Default';
   selectedClassChanged = new Subject<string>();
   averageTurtlesChanged = new Subject<number>();
+
+  classOptions: SelectItem[] = [
+    { label: 'Class 1', value: 'Class 1' },
+  ];
+
+  updateClassOptions(classOptions: SelectItem[]) {
+    this.classOptions = classOptions;
+  }
 
   getAverageTurtles(): number {
     return this.averageTurtles;

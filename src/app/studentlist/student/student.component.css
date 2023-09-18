@@ -19,3 +19,17 @@ p-button {
   margin: auto;
   padding: 0;
 }
+
+input {
+  max-width: 75px;
+}
+
+.student {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+p {
+  margin: 0;
+}

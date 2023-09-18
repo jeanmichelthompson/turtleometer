@@ -8,8 +8,9 @@
   </p-card>
   <div class="select-a-class" *ngIf="selectedClass === 'Default'">
     <h1>Select a Class</h1>
+    <h2>or Edit Classes to Add Your First Class</h2>
   </div>
-  <div *ngFor="let student of students; let i = index" class="student-item">
+  <div *ngFor="let student of displayedStudents; let i = index" class="student-item">
     <app-student
       [studentName]="student.name"
       [turtles]="student.turtles"
@@ -19,4 +20,7 @@
       [index]="i"
     ></app-student>
   </div>
+</div>
+<div class="paginator-container">
+  <p-paginator [rows]="pageSize" [totalRecords]="students.length" (onPageChange)="onPageChange($event)"></p-paginator>
 </div>

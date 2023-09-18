@@ -14,9 +14,12 @@ interface Student {
 })
 export class StudentlistComponent {
   students: Student[] = [];
-  averageTurtles: number = 0; // Initialize with a default value
+  averageTurtles: number = 0;
   isEditing: boolean = false;
   @Input() selectedClass: string = 'Default';
+  pageSize: number = 15;
+  currentPage: number = 1;
+  displayedStudents: Student[] = [];
 
   constructor(private classDataService: ClassDataService) {}
 
@@ -34,6 +37,7 @@ export class StudentlistComponent {
     }
 
     this.calculateAverageTurtles();
+    this.paginateStudents();
   }
 
   toggleEdit() {
@@ -54,12 +58,15 @@ export class StudentlistComponent {
     this.classDataService.selectedClassChanged.subscribe((selectedClass: string) => {
       this.selectedClass = selectedClass;
       this.updateStudentsForClass();
+      this.calculateAverageTurtles();
     });
     this.calculateAverageTurtles();
+    this.paginateStudents();
   }
 
   updateStudentsForClass() {
     this.students = this.classDataService.getClassStudents(this.selectedClass);
+    this.paginateStudents();
   }
 
   calculateAverageTurtles() {
@@ -68,5 +75,16 @@ export class StudentlistComponent {
       this.averageTurtles = totalTurtles / this.students.length;
       this.classDataService.setAverageTurtles(this.averageTurtles);
     }
+  }
+
+  onPageChange(event: any) {
+    this.currentPage = event.page + 1;
+    this.paginateStudents();
+  }
+
+  private paginateStudents() {
+    const startIndex = (this.currentPage - 1) * this.pageSize;
+    const endIndex = startIndex + this.pageSize;
+    this.displayedStudents = this.students.slice(startIndex, endIndex);
   }
 }

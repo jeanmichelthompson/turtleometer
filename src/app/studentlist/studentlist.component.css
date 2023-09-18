@@ -1,6 +1,7 @@
 .student-list {
   display: flex;
   height: 100%;
+  max-height: 400px;
 }
 
 .button-card {
@@ -22,7 +23,8 @@ p-button {
 
 .select-a-class {
   display: flex;
+  flex-direction: column;
   width: 100%;
-  justify-content: center;
   padding-top: 50px;
+  justify-content: center;
 }

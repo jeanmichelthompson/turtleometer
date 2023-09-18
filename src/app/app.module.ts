@@ -9,6 +9,7 @@ import { HeaderComponent } from './header/header.component';
 import { StudentlistComponent } from './studentlist/studentlist.component';
 import { StudentComponent } from './studentlist/student/student.component';
 import { GaugeComponent } from './gauge/gauge.component';
+import { ClassMenuComponent } from './header/class-menu/class-menu.component';
 
 import { NgxGaugeModule } from 'ngx-gauge';
 import { ToolbarModule } from 'primeng/toolbar'
@@ -17,6 +18,7 @@ import { DropdownModule } from 'primeng/dropdown';
 import { CardModule } from 'primeng/card';
 import { ChipsModule } from 'primeng/chips';
 import { DynamicDialogModule } from 'primeng/dynamicdialog';
+import { PaginatorModule } from 'primeng/paginator';
 
 
 @NgModule({
@@ -26,6 +28,7 @@ import { DynamicDialogModule } from 'primeng/dynamicdialog';
     StudentlistComponent,
     StudentComponent,
     GaugeComponent,
+    ClassMenuComponent,
   ],
   imports: [
     BrowserModule,
@@ -39,6 +42,7 @@ import { DynamicDialogModule } from 'primeng/dynamicdialog';
     CardModule,
     ChipsModule,
     DynamicDialogModule,
+    PaginatorModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

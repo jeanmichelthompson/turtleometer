@@ -1,0 +1,9 @@
+<hr>
+<div class="class-menu">
+    <div class="list-item" *ngFor="let classOption of classOptions">
+      <h4>{{ classOption.label }}</h4>
+      <p-button class="edit-button" styleClass="p-button-info p-button-sm" (click)="editClass(classOption)">Rename</p-button>
+      <p-button styleClass="p-button-danger p-button-sm"(click)="deleteClass(classOption)">Delete</p-button>
+    </div>
+  <p-button styleClass="p-button-success p-button-sm" (click)="addClass()">Add Class</p-button>
+</div>

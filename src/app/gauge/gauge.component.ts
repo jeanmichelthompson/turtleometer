@@ -22,7 +22,8 @@ export class GaugeComponent {
     this.averageTurtles = this.classDataService.getAverageTurtles();
 
     this.classDataService.averageTurtlesChanged.subscribe((averageTurtles: number) => {
-      this.averageTurtles = averageTurtles;
+      // Round to the nearest tenth and convert it back to a number
+      this.averageTurtles = +averageTurtles.toFixed(1);
     });
   }
 }
