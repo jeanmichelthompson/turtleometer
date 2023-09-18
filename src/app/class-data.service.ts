@@ -19,7 +19,7 @@ export class ClassDataService {
   averageTurtlesChanged = new Subject<number>();
 
   classOptions: SelectItem[] = [
-    { label: 'Class 1', value: 'Class 1' },
+    { label: 'Test Class', value: 'Test Class' },
   ];
 
   updateClassOptions(classOptions: SelectItem[]) {
@@ -64,5 +64,13 @@ export class ClassDataService {
     if (students && studentIndex >= 0 && studentIndex < students.length) {
       students[studentIndex].name = newName;
     }
+  }
+
+  deleteStudentByIndex(className: string, index: number) {
+    const students = this.classStudents[className];
+    if (students && index >= 0 && index < students.length) {
+      students.splice(index, 1);
+    }
+    this.setSelectedClass(this.selectedClass);
   }
 }

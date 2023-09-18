@@ -74,6 +74,8 @@ export class StudentlistComponent {
       const totalTurtles = this.students.reduce((sum, student) => sum + student.turtles, 0);
       this.averageTurtles = totalTurtles / this.students.length;
       this.classDataService.setAverageTurtles(this.averageTurtles);
+    } else {
+      this.classDataService.setAverageTurtles(0);
     }
   }
 

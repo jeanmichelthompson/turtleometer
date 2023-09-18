@@ -5,19 +5,18 @@
   align-items: end;
 }
 
-.turtle-buttons {
+.turtle-buttons, .delete-button {
   display: flex;
   justify-content: center;
+}
+
+.delete-button {
+  margin-top: 10px;
 }
 
 .turtle-icons {
   display: flex;
   justify-content: center;
-}
-
-p-button {
-  margin: auto;
-  padding: 0;
 }
 
 input {
@@ -32,4 +31,13 @@ input {
 
 p {
   margin: 0;
+}
+
+p-button {
+  margin: auto;
+  padding: 0;
+}
+
+input {
+  margin-top: 10px;
 }

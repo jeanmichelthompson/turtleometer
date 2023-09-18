@@ -1,11 +1,15 @@
-<div class="gauge-container">
-  <ngx-gauge [type]="'arch'"
-  [value]="averageTurtles"
-  [label]="'Turtles'"
-  [size]="450"
-  [max]="6"
-  [thick]="24"
-  [thresholds]="thresholdConfig"
-  [cap]="'round'">
-</ngx-gauge>
+<div class="container">
+  <div class="gauge-container">
+    <ngx-gauge
+      [type]="'arch'"
+      [value]="averageTurtles"
+      [size]="600"
+      [max]="6"
+      [thick]="24"
+      [thresholds]="thresholdConfig"
+      [label]="'Turtles'"
+      [cap]="'round'">
+    </ngx-gauge>
+  </div>
 </div>
+

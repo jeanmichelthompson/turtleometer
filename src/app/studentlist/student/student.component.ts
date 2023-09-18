@@ -49,4 +49,9 @@ export class StudentComponent {
     this.classDataService.updateStudentName(className, this.index, newName);
     this.originalStudentName = newName;
   }
+
+  deleteStudent() {
+    const className = this.classDataService.getSelectedClass();
+    this.classDataService.deleteStudentByIndex(className, this.index);
+  }
 }

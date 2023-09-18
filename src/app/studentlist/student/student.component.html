@@ -5,9 +5,12 @@
   <div class="student">
     <h4 *ngIf="!isEditing">{{ studentName }}</h4>
     <input *ngIf="isEditing" [(ngModel)]="studentName" (ngModelChange)="updateStudentNameInService($event)" />
-    <div class="turtle-buttons">
+    <div class="turtle-buttons" *ngIf="!isEditing">
       <p-button styleClass="p-button-rounded p-button-sm p-button-danger" (click)="decreaseTurtles()">-</p-button>
       <p-button styleClass="p-button-rounded p-button-sm" (click)="increaseTurtles()">+</p-button>
+    </div>
+    <div class="delete-button" *ngIf="isEditing">
+      <p-button styleClass="p-button-rounded p-button-sm p-button-danger" (click)="deleteStudent()">Delete</p-button>
     </div>
   </div>
 </p-card>
