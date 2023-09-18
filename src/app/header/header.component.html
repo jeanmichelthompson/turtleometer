@@ -1,0 +1,18 @@
+<p-toolbar class="toolbar">
+  <div class="toolbar-container">
+    <div class="p-toolbar-group-start">
+      <p-dropdown
+      [options]="classOptions"
+      [(ngModel)]="selectedClass"
+      (ngModelChange)="onClassChange(selectedClass)"
+      placeholder="Select a Class"></p-dropdown>
+    </div>
+    <p-button label="Edit Classes" (click)="showClassDialog()"></p-button>
+    <div class="p-toolbar-group-center">
+      <h1>Turtle-O-Meter</h1>
+    </div>
+    <div class="p-toolbar-group-end">
+      <h2>Mr. Hakim</h2>
+    </div>
+  </div>
+</p-toolbar>

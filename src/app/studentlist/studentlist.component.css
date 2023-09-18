@@ -1,0 +1,28 @@
+.student-list {
+  display: flex;
+  height: 100%;
+}
+
+.button-card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.button-container {
+  display: flex;
+  flex-direction: column;
+}
+
+p-button {
+  margin: 5px;
+  padding: auto;
+}
+
+.select-a-class {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  padding-top: 50px;
+}

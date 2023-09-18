@@ -1,0 +1,13 @@
+<p-card class="card">
+  <div class="turtle-icons" *ngFor="let icon of turtleIcons">
+    <p>Turtle</p>
+  </div>
+  <div class="student">
+    <h4 *ngIf="!isEditing">{{ studentName }}</h4>
+    <input *ngIf="isEditing" [(ngModel)]="studentName" (ngModelChange)="updateStudentNameInService($event)" />
+    <div class="turtle-buttons">
+      <p-button styleClass="p-button-rounded p-button-sm p-button-danger" (click)="decreaseTurtles()">-</p-button>
+      <p-button styleClass="p-button-rounded p-button-sm" (click)="increaseTurtles()">+</p-button>
+    </div>
+  </div>
+</p-card>

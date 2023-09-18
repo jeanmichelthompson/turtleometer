@@ -1,0 +1,19 @@
+p-toolbar {
+  max-width: 1440px;
+}
+
+.toolbar-container {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.p-toolbar-group-center {
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+}
+
+h1, h2 {
+  margin: 0;
+}

@@ -1,0 +1,22 @@
+<div class="student-list">
+  <p-card class="button-card" *ngIf="selectedClass != 'Default'">
+    <div class="button-container">
+      <p-button styleClass="p-button-info p-button-raised" (click)="addStudent()">Add Student</p-button>
+      <p-button styleClass="p-button-info p-button-raised" (click)="toggleEdit()" *ngIf="!isEditing">Edit</p-button>
+      <p-button styleClass="p-button-info p-button-raised" (click)="toggleEdit()" *ngIf="isEditing">Apply</p-button>
+    </div>
+  </p-card>
+  <div class="select-a-class" *ngIf="selectedClass === 'Default'">
+    <h1>Select a Class</h1>
+  </div>
+  <div *ngFor="let student of students; let i = index" class="student-item">
+    <app-student
+      [studentName]="student.name"
+      [turtles]="student.turtles"
+      (increase)="increaseTurtles(student)"
+      (decrease)="decreaseTurtles(student)"
+      [isEditing]="isEditing"
+      [index]="i"
+    ></app-student>
+  </div>
+</div>
