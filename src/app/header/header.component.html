@@ -2,12 +2,13 @@
   <div class="toolbar-container">
     <div class="p-toolbar-group-start">
       <p-dropdown
-      [options]="classOptions"
-      [(ngModel)]="selectedClass"
-      (ngModelChange)="onClassChange(selectedClass)"
-      placeholder="Select a Class"></p-dropdown>
+        [options]="classOptions"
+        [(ngModel)]="selectedClass"
+        (ngModelChange)="onClassChange(selectedClass)"
+        placeholder="Select a Class">
+      </p-dropdown>
+      <p-button class="edit-button" styleClass="p-button-info p-button-raised" label="Edit Classes" (click)="showClassDialog()"></p-button>
     </div>
-    <p-button class="edit-button" styleClass="p-button-info p-button-raised" label="Edit Classes" (click)="showClassDialog()"></p-button>
     <div class="p-toolbar-group-center">
       <h1>Turtle-O-Meter</h1>
     </div>

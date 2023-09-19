@@ -4,26 +4,48 @@ p-toolbar {
 
 .toolbar-container {
   display: flex;
+  justify-content: space-between;
   width: 100%;
-  justify-content: left;
 }
+
+/* .p-toolbar-group-start {
+  margin-right: auto;
+} */
 
 .p-toolbar-group-center {
-  display: flex;
-  flex-direction: column;
-  margin-left: auto;
-  margin-right: 420px;
+  position: absolute;
+  top: 3%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
-.p-toolbar-group-end {
-  margin-left: auto;
-}
+/* .p-toolbar-group-end {
+  margin-left: 350px;
+} */
 
 h1, h2 {
   margin: 0;
 }
 
+h1 {
+  font-size: 60px;
+  background: linear-gradient(to right, #fdff72, #F6C23E);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+  -webkit-text-stroke: 1px black; /* Adjust the width and color as needed */
+}
+
+h2 {
+  font-size: 30px;
+  color: white;
+  -webkit-text-stroke: 1px black;
+}
+
 .edit-button {
   margin-left: 15px;
   margin-right: auto;
+  margin-top: auto;
+  margin-bottom: auto;
 }

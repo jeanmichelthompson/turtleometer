@@ -19,7 +19,8 @@ export class ClassDataService {
   averageTurtlesChanged = new Subject<number>();
 
   classOptions: SelectItem[] = [
-    { label: 'Test Class', value: 'Test Class' },
+    { label: '8th Grade World Perspectives', value: '8th Grade World Perspectives' },
+    { label: 'Test', value: 'Test' },
   ];
 
   updateClassOptions(classOptions: SelectItem[]) {

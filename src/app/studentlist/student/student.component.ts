@@ -1,5 +1,6 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { ClassDataService } from 'src/app/class-data.service';
+import { AudioService } from 'src/app/audio.service';
 
 @Component({
   selector: 'app-student',
@@ -18,7 +19,7 @@ export class StudentComponent {
 
   turtleIcons: any[] = [];
 
-  constructor(private classDataService: ClassDataService) {}
+  constructor(private classDataService: ClassDataService, private audioService: AudioService) {}
 
   ngOnInit() {
     for (let i = 0; i < this.turtles; i++) {
@@ -34,6 +35,9 @@ export class StudentComponent {
       this.turtleIcons.push({});
       this.increase.emit();
     }
+
+    const randomSound = Math.random() < 0.5 ? 'assets/increase.wav' : 'assets/increase2.wav';
+    this.audioService.playSound(randomSound);
   }
 
   decreaseTurtles() {
@@ -42,6 +46,12 @@ export class StudentComponent {
       this.turtleIcons.pop();
       this.decrease.emit();
     }
+
+    const randomSoundIndex = Math.floor(Math.random() * 3); // Generates 0, 1, or 2
+    const randomSounds = ['assets/decrease.wav', 'assets/decrease2.wav', 'assets/decrease3.wav'];
+    const randomSound = randomSounds[randomSoundIndex];
+
+    this.audioService.playSound(randomSound);
   }
 
   updateStudentNameInService(newName: string) {

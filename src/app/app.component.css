@@ -12,7 +12,7 @@ app-header {
 app-studentlist {
   height: fit-content;
   margin-top: auto;
-  margin-bottom: 0px;
+  /* margin-bottom: 0px; */
   /* background-color: #5CD2E6; */
-  padding-top: 0;
+  padding-top: auto;
 }

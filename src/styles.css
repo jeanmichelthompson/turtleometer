@@ -4,4 +4,37 @@
 
 body {
   margin: 0;
+  background: radial-gradient(circle, rgba(32,242,212,1) 0%, rgba(48,198,233,1) 66%);
+}
+
+.p-paginator {
+  background-color: transparent;
+}
+
+.p-card {
+  background-color: #B5F2EB;
+  box-shadow: -3px 8px 5px -3px rgba(0,0,0,0.42);
+  margin-right: 3px;
+}
+
+.p-toolbar {
+  background-color: transparent;
+  border: none;
+  margin-bottom: 0;
+}
+
+.p-button.p-button-danger {
+  background: #FF5825;
+  border: 1px solid #FF5825;
+}
+
+.p-button.p-button-danger:enabled:hover{
+  background: #da491d;
+  border: 1px solid #da491d;
+}
+
+.p-paginator .p-paginator-pages .p-paginator-page.p-highlight {
+  background: transparent;
+  border-color: transparent;
+  color: black;
 }
