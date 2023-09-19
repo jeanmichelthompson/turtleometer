@@ -1,6 +1,8 @@
 <p-card class="card">
-  <div class="turtle-icons" *ngFor="let icon of turtleIcons">
-    <p>Turtle</p>
+  <div class="turtle-icons">
+    <ng-container *ngFor="let icon of turtleIcons; let i = index">
+      <img src="assets/turtle.png" alt="Turtle" class="turtle-icon" />
+    </ng-container>
   </div>
   <div class="student">
     <h4 *ngIf="!isEditing">{{ studentName }}</h4>
