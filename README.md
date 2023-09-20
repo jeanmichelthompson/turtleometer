@@ -1,10 +1,14 @@
 # Turtleometer
 
+A behavior management tool that allows the user to create classes, add students, and award or deduct turtles based on their behavior.
+
+Angular/Electron Project
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.2.0.
 
 ## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+Run `npm run electron-build` for a desktop application view.
 
 ## Code scaffolding
 
