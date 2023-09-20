@@ -4,13 +4,9 @@ A behavior management tool that allows the user to create classes, add students,
 
 Angular/Electron Project
 
-A behavior management tool that allows the user to create classes, add students, and award or deduct turtles based on their behavior.
-
-Angular/Electron Project
-
 ## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+Run `npm run electron-build` to open as a desktop application.
 
 ## Code scaffolding
 
