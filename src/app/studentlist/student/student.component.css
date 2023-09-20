@@ -2,7 +2,6 @@
   display: flex;
   position: relative;
   height: 100%;
-  align-items: end;
 }
 
 .turtle-buttons, .delete-button {

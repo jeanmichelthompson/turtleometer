@@ -1,0 +1,16 @@
+{
+  "selectedClass": "Default",
+  "classOptions": [
+    { "label": "8th Grade World Perspectives", "value": "8th Grade World Perspectives" },
+    { "label": "Test", "value": "Test" }
+  ],
+  "classStudents": {
+    "8th Grade World Perspectives": [
+      { "name": "John Cena", "turtles": 4, "index": 0 },
+      { "name": "Student 2", "turtles": 4, "index": 1 }
+    ],
+    "Test": [
+      { "name": "Test Student", "turtles": 4, "index": 0 }
+    ]
+  }
+}
