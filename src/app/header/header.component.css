@@ -34,7 +34,7 @@ h1 {
   background-clip: text;
   color: transparent;
   -webkit-text-fill-color: transparent;
-  -webkit-text-stroke: 1px black; /* Adjust the width and color as needed */
+  -webkit-text-stroke: 1px black;
 }
 
 h2 {
