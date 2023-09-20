@@ -9,7 +9,8 @@
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "electron": "electron .",
-    "electron-build": "ng build && electron ."
+    "electron-build": "ng build && electron .",
+    "pack": "electron-packager ./ Turtleometer --platform=win32 --overwrite"
   },
   "private": true,
   "dependencies": {
