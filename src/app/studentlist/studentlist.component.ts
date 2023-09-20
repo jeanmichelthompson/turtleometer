@@ -16,28 +16,51 @@ export class StudentlistComponent {
   students: Student[] = [];
   averageTurtles: number = 0;
   isEditing: boolean = false;
-  @Input() selectedClass: string = 'Default';
-  pageSize: number = 15;
+  @Input() selectedClass: string = '';
+  pageSize: number = 12;
   currentPage: number = 1;
+  classSelected: boolean = false;
   displayedStudents: Student[] = [];
 
   constructor(private classDataService: ClassDataService) {}
 
-  addStudent() {
-    let newStudent: Student = { name: 'Student Name', turtles: 4, index: this.students.length };
-    let oldLen: number = this.students.length;
-    this.classDataService.addStudentToClass(newStudent, this.selectedClass);
-    this.students.push(newStudent);
-    let newLen: number = this.students.length;
-
-    if (oldLen == (newLen - 2)) {
-      this.students.pop();
-    } else {
-      console.log(this.students);
-    }
-
+  ngOnInit() {
+    this.classDataService.classSelected.subscribe((selectedClass: string) => {
+      this.selectedClass = selectedClass;
+      if (this.selectedClass == "") {
+        this.classSelected = false;
+        console.log("Class Deselected");
+      } else {
+        this.classSelected = true;
+        console.log("Class Selected");
+      }
+      this.updateStudentsForClass();
+      this.calculateAverageTurtles();
+    });
     this.calculateAverageTurtles();
     this.paginateStudents();
+  }
+
+  addStudent() {
+    if(this.classDataService.selectedClass.length > 1) {
+      console.log(this.classDataService.selectedClass)
+      let newStudent: Student = { name: 'Student Name', turtles: 4, index: this.students.length };
+      let oldLen: number = this.students.length;
+      if (this.classDataService.isElectron = true) {
+        this.classDataService.addStudentToClass(newStudent, this.selectedClass);
+      }
+      this.students.push(newStudent);
+      let newLen: number = this.students.length;
+
+      if (oldLen == (newLen - 2)) {
+        this.students.pop();
+      } else {
+        console.log(this.students);
+      }
+
+      this.calculateAverageTurtles();
+      this.paginateStudents();
+    }
   }
 
   toggleEdit() {
@@ -52,16 +75,6 @@ export class StudentlistComponent {
   decreaseTurtles(student: Student) {
     student.turtles = Math.max(0, student.turtles - 1);
     this.calculateAverageTurtles();
-  }
-
-  ngOnInit() {
-    this.classDataService.selectedClassChanged.subscribe((selectedClass: string) => {
-      this.selectedClass = selectedClass;
-      this.updateStudentsForClass();
-      this.calculateAverageTurtles();
-    });
-    this.calculateAverageTurtles();
-    this.paginateStudents();
   }
 
   updateStudentsForClass() {

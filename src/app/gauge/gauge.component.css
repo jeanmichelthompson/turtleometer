@@ -5,6 +5,9 @@
   width: 100%;
 }
 
-/* .container {
-  background-color: #5CD2E6;
-} */
+img {
+  position: absolute;
+  transform: translate(0%, 60%);
+  height: 150px;
+  width: 250px;
+}

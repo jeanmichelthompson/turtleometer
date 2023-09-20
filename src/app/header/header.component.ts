@@ -15,11 +15,20 @@ export class HeaderComponent {
   selectedClass: string;
   ref: DynamicDialogRef | undefined;
   classOptions: SelectItem[] = [];
+  isEditingClasses: boolean = false;
 
   constructor(private classDataService: ClassDataService, public dialogService: DialogService) {}
 
   ngOnInit() {
-    this.classOptions = this.classDataService.classOptions;
+    this.classOptions = this.classDataService.getClassOptions();
+    this.classDataService.classOptionsChanged.subscribe((options) => {
+      this.classOptions = options;
+    });
+    this.classDataService.selectedClassChanged.subscribe((selectedClass: string) => {
+      if (selectedClass == "") {
+        this.selectedClass = selectedClass;
+      }
+    })
   }
 
   onClassChange(selectedClass: string) {
@@ -27,6 +36,10 @@ export class HeaderComponent {
   }
 
   showClassDialog() {
-    this.ref = this.dialogService.open(ClassMenuComponent, { header: "Edit Classes"});
+    if (this.classDataService.isElectron == false) {
+      this.ref = this.dialogService.open(ClassMenuComponent, { header: "Edit Classes"});
+    } else {
+      this.isEditingClasses = !this.isEditingClasses;
+    }
   }
 }

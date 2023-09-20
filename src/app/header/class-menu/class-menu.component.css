@@ -21,3 +21,21 @@ p-button {
 li {
   padding-bottom: 5px;
 }
+
+.add-button {
+  padding-top: 20px;
+  padding-bottom: 5px;
+}
+
+input {
+  padding-top: 5px;
+}
+
+.add-class-input {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.submit-button {
+  padding-top: 5px;
+}

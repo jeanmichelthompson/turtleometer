@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { ClassDataService } from './class-data.service';
 import { SelectItem } from 'primeng/api/selectitem';
+import { IpcService } from './ipc.service';
 
 @Component({
   selector: 'app-root',
@@ -9,10 +9,4 @@ import { SelectItem } from 'primeng/api/selectitem';
 })
 export class AppComponent {
   title = 'turtleometer';
-  classOptions: SelectItem[] = [
-    { label: 'Default', value: 'Default' },
-  ];
-
-  constructor (private classDataService: ClassDataService) {}
-
 }

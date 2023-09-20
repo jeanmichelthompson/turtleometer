@@ -1,8 +1,9 @@
 <p-card class="card">
   <div class="turtle-icons">
     <ng-container *ngFor="let icon of turtleIcons; let i = index">
-      <img src="assets/turtle.png" alt="Turtle" class="turtle-icon" />
+      <img src="assets/turtleFinal.png" alt="Turtle" class="turtle-icon" />
     </ng-container>
+    <img src="assets/placeholderBlock.png" alt="Turtle" class="turtle-icon" *ngIf="turtleIcons.length < 1"/>
   </div>
   <div class="student">
     <h4 *ngIf="!isEditing">{{ studentName }}</h4>

@@ -1,13 +1,13 @@
 <div class="container">
   <div class="student-list">
-    <p-card class="button-card" *ngIf="selectedClass != 'Default'">
+    <p-card class="button-card" *ngIf="classSelected == true">
       <div class="button-container">
         <p-button styleClass="p-button-info p-button-raised" (click)="addStudent()">Add Student</p-button>
         <p-button styleClass="p-button-info p-button-raised" (click)="toggleEdit()" *ngIf="!isEditing">Edit</p-button>
         <p-button styleClass="p-button-info p-button-raised" (click)="toggleEdit()" *ngIf="isEditing">Apply</p-button>
       </div>
     </p-card>
-    <div class="select-a-class" *ngIf="selectedClass === 'Default'">
+    <div class="select-a-class" *ngIf="classSelected == false">
       <h1>Select a Class</h1>
       <h2>or Edit Classes to Add Your First Class</h2>
     </div>
@@ -22,7 +22,7 @@
       ></app-student>
     </div>
   </div>
-  <div class="paginator-container" *ngIf="selectedClass != 'Default'">
+  <div class="paginator-container" *ngIf="classSelected == true">
     <p-paginator [rows]="pageSize" [totalRecords]="students.length" (onPageChange)="onPageChange($event)"></p-paginator>
   </div>
 </div>
