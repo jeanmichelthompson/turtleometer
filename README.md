@@ -8,6 +8,10 @@ Angular/Electron Project
 
 Run `npm run electron-build` to open as a desktop application.
 
+## Packaging
+
+To package the desktop application, run `npm run pack`.
+
 ## Code scaffolding
 
 Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
