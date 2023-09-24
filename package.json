@@ -24,6 +24,7 @@
     "@angular/router": "^16.2.5",
     "@types/electron": "^1.6.10",
     "electron": "^26.2.1",
+    "electron-squirrel-startup": "^1.0.0",
     "electron-store": "^8.1.0",
     "ngx-gauge": "^8.0.0",
     "primeicons": "^6.0.1",
