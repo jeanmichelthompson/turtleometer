@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component } from '@angular/core';
 import { SelectItem } from 'primeng/api/selectitem';
 import { ClassDataService } from 'src/app/class-data.service';
 
@@ -13,6 +13,8 @@ export class ClassMenuComponent {
   newClass: string;
   isEditingNames: boolean = false;
   isAddingClass: boolean = false;
+  classEditingStates: { label: string, isEditing: boolean }[] = [];
+
 
   classOptions: SelectItem[] = [];
 
@@ -20,10 +22,22 @@ export class ClassMenuComponent {
 
   ngOnInit() {
     this.classOptions = this.classDataService.getClassOptions();
+    this.classEditingStates = this.classOptions.map(option => ({
+      label: option.label,
+      isEditing: false
+    }));
     this.classDataService.classOptionsChanged.subscribe((options) => {
       this.classOptions = options;
+      this.classEditingStates = options.map(option => ({
+        label: option.label,
+        isEditing: false
+      }));
     });
     this.classDataService.updateClassOptions(this.classOptions);
+  }
+
+  toggleEditing(index: number) {
+    this.classEditingStates[index].isEditing = !this.classEditingStates[index].isEditing;
   }
 
   editClass(classOption: SelectItem) {
@@ -126,4 +140,13 @@ export class ClassMenuComponent {
       this.newClass = "";
     }
   }
+
+  saveClassChanges(index: number) {
+    this.classEditingStates[index].isEditing = false;
+    this.classDataService.updateClassOptions(this.classOptions);
+  }
 }
+
+
+
+

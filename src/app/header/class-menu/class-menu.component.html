@@ -1,16 +1,20 @@
 <div class="class-menu">
-    <div class="list-item" *ngFor="let classOption of classOptions">
-      <h4 *ngIf="!isEditingNames">{{ classOption.label }}</h4>
-      <input *ngIf="isEditingNames" [(ngModel)]="className" (ngModelChange)="updateClassNameInService(classOption, $event)" />
-      <p-button class="edit-button" styleClass="p-button-info p-button-sm" (click)="editClass(classOption)" *ngIf="!isEditingNames">Rename</p-button>
-      <p-button class="edit-button" styleClass="p-button-info p-button-sm" (click)="editClass(classOption)" *ngIf="isEditingNames">Apply</p-button>
-      <p-button styleClass="p-button-danger p-button-sm"(click)="deleteClass(classOption)">Delete</p-button>
-    </div>
+  <div class="list-item" *ngFor="let classOption of classOptions; let i = index">
+    <h4 *ngIf="!classEditingStates[i].isEditing">{{ classOption.label }}</h4>
+    <input *ngIf="classEditingStates[i].isEditing" [(ngModel)]="classOption.label"/>
+    <p-button class="edit-button" styleClass="p-button-info p-button-sm" (click)="toggleEditing(i)" *ngIf="!classEditingStates[i].isEditing">
+      Rename
+    </p-button>
+    <p-button class="edit-button" styleClass="p-button-info p-button-sm" (click)="saveClassChanges(i)" *ngIf="classEditingStates[i].isEditing">
+      Apply
+    </p-button>
+    <p-button styleClass="p-button-danger p-button-sm" (click)="deleteClass(classOption)">Delete</p-button>
+  </div>
   <div class="add-button">
     <p-button styleClass="p-button-success p-button-sm" (click)="addClass()">Add Class</p-button>
   </div>
   <div class="add-class-input" *ngIf="isAddingClass">
-    <input [(ngModel)]="newClass"/>
+    <input [(ngModel)]="newClass" />
   </div>
   <div class="submit-button" *ngIf="isAddingClass">
     <p-button styleClass="p-button-info p-button-sm" (click)="submitClass()">Submit</p-button>

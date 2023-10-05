@@ -1,6 +1,4 @@
 import { Component } from '@angular/core';
-import { SelectItem } from 'primeng/api/selectitem';
-import { IpcService } from './ipc.service';
 
 @Component({
   selector: 'app-root',
