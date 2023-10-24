@@ -56,6 +56,7 @@ export class StudentComponent {
 
   updateStudentNameInService(newName: string) {
     let className = this.classDataService.getSelectedClass();
+    console.log("This student index: " + this.index)
     this.classDataService.updateStudentName(className, this.index, newName);
     this.originalStudentName = newName;
   }

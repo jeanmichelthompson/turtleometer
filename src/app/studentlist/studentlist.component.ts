@@ -101,5 +101,6 @@ export class StudentlistComponent {
     const startIndex = (this.currentPage - 1) * this.pageSize;
     const endIndex = startIndex + this.pageSize;
     this.displayedStudents = this.students.slice(startIndex, endIndex);
+    console.log(this.displayedStudents);
   }
 }
