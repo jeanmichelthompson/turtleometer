@@ -22,6 +22,7 @@ export class StudentComponent {
   constructor(private classDataService: ClassDataService, private audioService: AudioService) {}
 
   ngOnInit() {
+    console.log(this.studentName + ": " + this.turtles + " Turtles")
     for (let i = 0; i < this.turtles; i++) {
       this.turtleIcons.push({});
     }
@@ -31,8 +32,11 @@ export class StudentComponent {
 
   increaseTurtles() {
     if (this.turtles < 6) {
+      console.log("Pre-Addition: " + this.turtles);
       this.turtles++;
+      console.log("Post-Addition: " + this.turtles);
       this.turtleIcons.push({});
+      this.classDataService.updateStudentTurtles(this.index, this.turtles);
       this.increase.emit();
     }
 
@@ -42,8 +46,11 @@ export class StudentComponent {
 
   decreaseTurtles() {
     if (this.turtles > 0) {
+      console.log("Pre-Subtraction: " + this.turtles);
       this.turtles--;
+      console.log("Post-Subtraction: " + this.turtles);
       this.turtleIcons.pop();
+      this.classDataService.updateStudentTurtles(this.index, this.turtles);
       this.decrease.emit();
     }
 
@@ -63,6 +70,6 @@ export class StudentComponent {
 
   deleteStudent() {
     const className = this.classDataService.getSelectedClass();
-    this.classDataService.deleteStudentByIndex(className, this.index);
+    this.classDataService.deleteStudentByIndex(className, (this.index));
   }
 }

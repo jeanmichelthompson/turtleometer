@@ -29,10 +29,8 @@ export class StudentlistComponent {
       this.selectedClass = selectedClass;
       if (this.selectedClass == "") {
         this.classSelected = false;
-        console.log("Class Deselected");
       } else {
         this.classSelected = true;
-        console.log("Class Selected");
       }
       this.updateStudentsForClass();
       this.calculateAverageTurtles();
@@ -68,12 +66,12 @@ export class StudentlistComponent {
   }
 
   increaseTurtles(student: Student) {
-    student.turtles = Math.min(6, student.turtles + 1);
+    student.turtles = Math.min(6, student.turtles);
     this.calculateAverageTurtles();
   }
 
   decreaseTurtles(student: Student) {
-    student.turtles = Math.max(0, student.turtles - 1);
+    student.turtles = Math.max(0, student.turtles);
     this.calculateAverageTurtles();
   }
 

@@ -105,7 +105,6 @@ export class ClassDataService {
 
   setSelectedClass(className: string): void {
     this.selectedClass = className;
-    console.log("Class Selected: " + className)
     this.selectedClassChanged.next(className);
     this.classSelected.emit(this.selectedClass);
     this.saveConfig();
@@ -130,7 +129,7 @@ export class ClassDataService {
 
   updateStudentName(className: string, studentIndex: number, newName: string) {
     const students = this.classStudents[className];
-    if (students && studentIndex >= 0 && studentIndex < students.length) {
+    if (students && studentIndex >= 0 && studentIndex <= students.length) {
       students[studentIndex].name = newName;
     }
     this.saveConfig();
@@ -138,10 +137,31 @@ export class ClassDataService {
 
   deleteStudentByIndex(className: string, index: number) {
     const students = this.classStudents[className];
-    if (students && index >= 0 && index < students.length) {
+    if (students && index >= 0 && index <= students.length) {
       students.splice(index, 1);
-    }
+
+      // After deleting a student, reassign the index property for each student
+      for (let i = 0; i < students.length; i++) {
+        students[i].index = i;
+      }
+    } else (
+      console.log("Failed to delete student")
+    )
     this.setSelectedClass(this.selectedClass);
+    this.saveConfig();
+  }
+
+  updateStudentTurtles(studentIndex: number, newTurtles: number) {
+    const students = this.classStudents[this.selectedClass];
+    if (students && studentIndex >= 0) {
+      console.log("Trying to access index " + studentIndex)
+      students[(studentIndex)].turtles = newTurtles;
+      console.log(students);
+    } else {
+      console.log("If statement failed")
+    }
+
+    console.log(students)
     this.saveConfig();
   }
 }
